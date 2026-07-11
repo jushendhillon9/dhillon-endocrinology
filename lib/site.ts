@@ -18,7 +18,8 @@ export const siteConfig = {
   )}`,
   phoneDisplay: "(949) 465-8145",
   phoneHref: "tel:+19494658145",
-  headshot: "/assets/Dr.Dhillon-Headshot.png",
+  // Cropped above the original banner's baked-in "Kimvir Dhillon, M.D." text.
+  headshot: "/assets/Dr.Dhillon-Portrait.png",
   appointmentUrl: "/contact",
   openingStatus: "Now seeing patients at Saddleback Medical Group in Laguna Hills",
   currentPracticeNote:
@@ -70,10 +71,31 @@ export const siteConfig = {
     { name: "American Board of Endocrinology", year: "2003" },
   ],
   // Concise credentials highlighted alongside the homepage portrait.
+  // To show official logos, drop the verified asset in public/assets/education/
+  // and set `logo` to its path plus `logoWidth` (px, ~44–56) so all three read
+  // as visually balanced. While `logo` is empty a teal accent bar is shown.
   homeCredentials: [
-    { school: "UC Berkeley", detail: "B.A., Molecular and Cell Biology / Neurobiology" },
-    { school: "University of Vermont College of Medicine", detail: "M.D." },
-    { school: "UCLA", detail: "Internship and Residency" },
+    {
+      school: "UC Berkeley",
+      detail: "B.A., Molecular and Cell Biology / Neurobiology",
+      logo: "/assets/Berkeley.svg",
+      logoWidth: 48,
+      logoHeight: 48,
+    },
+    {
+      school: "University of Vermont College of Medicine",
+      detail: "M.D.",
+      logo: "/assets/UVM.svg",
+      logoWidth: 41,
+      logoHeight: 52,
+    },
+    {
+      school: "UCLA",
+      detail: "Internship and Residency",
+      logo: "/assets/UCLA.webp",
+      logoWidth: 48,
+      logoHeight: 48,
+    },
   ],
   // Rates are managed here so they can be updated in one place. Leave `amount`
   // as an empty string until an exact figure is confirmed — the UI falls back
