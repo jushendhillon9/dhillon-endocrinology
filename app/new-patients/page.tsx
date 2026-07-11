@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRightIcon, CheckIcon } from "@/components/icons";
+import { ArrowRightIcon, CheckIcon, PhoneIcon } from "@/components/icons";
 import { CtaBand } from "@/components/cta-band";
 import { SectionHeading } from "@/components/section-heading";
 import { siteConfig } from "@/lib/site";
@@ -61,6 +61,25 @@ export default function NewPatientsPage() {
             <a href={siteConfig.phoneHref} className="button-light mt-7">Call {siteConfig.phoneDisplay} <ArrowRightIcon className="h-4 w-4" /></a>
           </aside>
         </div>
+      </section>
+
+      <section id="rates" className="page-shell scroll-mt-24 py-20 lg:py-24">
+        <SectionHeading eyebrow="Rates & payment" title="Clear information about fees." body="The office can review current fees and payment options with you before your visit." />
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {siteConfig.rates.items.map((rate) => (
+            <article key={rate.label} className="rounded-3xl border border-slate-200 p-7">
+              <h2 className="font-serif text-xl font-semibold text-slate-950">{rate.label}</h2>
+              <p className="mt-4 text-2xl font-bold text-teal-800">
+                {rate.amount ? rate.amount : <span className="text-base font-semibold text-slate-500">Contact the office</span>}
+              </p>
+              {rate.detail ? <p className="mt-2 text-sm leading-6 text-slate-600">{rate.detail}</p> : null}
+            </article>
+          ))}
+        </div>
+        <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+          <p className="text-sm leading-6 text-slate-600">{siteConfig.rates.note}</p>
+        </div>
+        <a href={siteConfig.phoneHref} className="button-primary mt-7">Call {siteConfig.phoneDisplay} <PhoneIcon className="h-4 w-4" /></a>
       </section>
 
       <CtaBand />

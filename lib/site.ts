@@ -69,6 +69,23 @@ export const siteConfig = {
     { name: "Diplomate, American Board of Internal Medicine", year: "2001" },
     { name: "American Board of Endocrinology", year: "2003" },
   ],
+  // Concise credentials highlighted alongside the homepage portrait.
+  homeCredentials: [
+    { school: "UC Berkeley", detail: "B.A., Molecular and Cell Biology / Neurobiology" },
+    { school: "University of Vermont College of Medicine", detail: "M.D." },
+    { school: "UCLA", detail: "Internship and Residency" },
+  ],
+  // Rates are managed here so they can be updated in one place. Leave `amount`
+  // as an empty string until an exact figure is confirmed — the UI falls back
+  // to a "contact the office" message rather than showing a placeholder price.
+  rates: {
+    items: [
+      { label: "Initial consultation", amount: "", detail: "" },
+      { label: "Follow-up appointment", amount: "", detail: "" },
+      { label: "Additional service or policy", amount: "", detail: "" },
+    ],
+    note: "Please contact the office to confirm current pricing, insurance participation, and referral requirements.",
+  },
   values: [
     {
       title: "Thoughtful, individualized care",
