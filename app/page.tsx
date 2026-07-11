@@ -67,14 +67,15 @@ export default function HomePage() {
                 {siteConfig.homeCredentials.map((item) => (
                   <li key={item.school} className="flex items-center gap-4">
                     {item.logo ? (
-                      <span className="flex h-11 shrink-0 items-center justify-center" style={{ width: item.logoWidth }}>
+                      <span className="flex w-14 shrink-0 items-center justify-center">
                         <Image
                           src={item.logo}
                           alt={`${item.school} logo`}
                           width={item.logoWidth}
-                          height={44}
+                          height={item.logoHeight}
                           sizes={`${item.logoWidth}px`}
-                          className="h-auto w-full object-contain"
+                          className="object-contain"
+                          style={{ width: item.logoWidth, height: item.logoHeight }}
                         />
                       </span>
                     ) : (

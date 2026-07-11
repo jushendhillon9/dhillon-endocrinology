@@ -78,20 +78,23 @@ export const siteConfig = {
     {
       school: "UC Berkeley",
       detail: "B.A., Molecular and Cell Biology / Neurobiology",
-      logo: "", // e.g. "/assets/education/uc-berkeley.svg"
-      logoWidth: 52,
+      logo: "/assets/Berkeley.svg",
+      logoWidth: 48,
+      logoHeight: 48,
     },
     {
       school: "University of Vermont College of Medicine",
       detail: "M.D.",
-      logo: "", // e.g. "/assets/education/university-of-vermont.svg"
-      logoWidth: 52,
+      logo: "/assets/UVM.svg",
+      logoWidth: 41,
+      logoHeight: 52,
     },
     {
       school: "UCLA",
       detail: "Internship and Residency",
-      logo: "", // e.g. "/assets/education/ucla.svg"
-      logoWidth: 56,
+      logo: "/assets/UCLA.webp",
+      logoWidth: 48,
+      logoHeight: 48,
     },
   ],
   // Rates are managed here so they can be updated in one place. Leave `amount`
