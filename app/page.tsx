@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRightIcon, CheckIcon, LocationIcon, PhoneIcon } from "@/components/icons";
+import { ArrowRightIcon, CheckIcon, ChevronDownIcon, LocationIcon, PhoneIcon } from "@/components/icons";
 import { CtaBand } from "@/components/cta-band";
 import { SectionHeading } from "@/components/section-heading";
 import { siteConfig } from "@/lib/site";
@@ -7,51 +8,101 @@ import { siteConfig } from "@/lib/site";
 export default function HomePage() {
   return (
     <>
+      {/* Full-width specialty banner directly beneath the navigation */}
+      <section className="border-b border-teal-900/10 bg-teal-50">
+        <div className="page-shell py-8 text-center sm:py-10">
+          <h2 className="font-serif text-2xl font-semibold tracking-tight text-teal-900 sm:text-3xl lg:text-4xl">
+            Specialized care for complex hormonal and metabolic health.
+          </h2>
+        </div>
+      </section>
+
       <section className="relative overflow-hidden bg-gradient-to-br from-teal-50 via-white to-cyan-50">
         <div className="soft-grid absolute inset-0 opacity-70" />
-        <div className="page-shell relative grid gap-12 py-20 lg:grid-cols-[1.12fr_.88fr] lg:items-center lg:py-28">
+        <div className="page-shell relative grid gap-12 py-16 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:py-24">
           <div>
             <p className="eyebrow">Official practice information</p>
-            <h1 className="mt-5 max-w-4xl font-serif text-5xl font-semibold leading-[1.04] tracking-tight text-slate-950 sm:text-6xl lg:text-7xl">
-              Specialized care for complex hormonal and metabolic health.
+            <h1 className="mt-5 font-serif text-5xl font-semibold leading-[1.05] tracking-tight text-slate-950 sm:text-6xl">
+              {siteConfig.shortDoctorName}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">
-              {siteConfig.currentPracticeNote} This is the official website for {siteConfig.shortDoctorName}’s current practice information, with a focus on clear explanations and long-term partnership.
+            <p className="mt-4 text-lg font-semibold text-teal-800 sm:text-xl">
+              {siteConfig.specialty} · {siteConfig.practiceName}
             </p>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
+              {siteConfig.currentPracticeNote} This is the official website for his current practice information.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 text-sm text-slate-600 sm:flex-row sm:gap-6">
+              <span className="inline-flex items-center gap-2"><LocationIcon className="h-4 w-4 shrink-0 text-teal-700" />{siteConfig.fullAddress}</span>
+              <a href={siteConfig.phoneHref} className="inline-flex items-center gap-2 font-semibold text-slate-700 hover:text-slate-950"><PhoneIcon className="h-4 w-4 text-teal-700" />{siteConfig.phoneDisplay}</a>
+            </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link href={siteConfig.appointmentUrl} className="button-primary">
                 Request an appointment
                 <ArrowRightIcon className="h-4 w-4" />
               </Link>
-              <Link href="/about" className="button-secondary">Meet {siteConfig.shortDoctorName}</Link>
-            </div>
-            <div className="mt-9 flex flex-col gap-3 text-sm text-slate-600 sm:flex-row sm:gap-6">
-              <span className="inline-flex items-center gap-2"><LocationIcon className="h-4 w-4 text-teal-700" />{siteConfig.practiceName} · {siteConfig.cityState}</span>
-              <a href={siteConfig.phoneHref} className="inline-flex items-center gap-2 font-semibold text-slate-700 hover:text-slate-950"><PhoneIcon className="h-4 w-4 text-teal-700" />{siteConfig.phoneDisplay}</a>
+              <a href="#conditions-services" className="button-secondary">
+                Conditions &amp; Services
+                <ChevronDownIcon className="h-4 w-4" />
+              </a>
             </div>
           </div>
 
-          <aside className="card relative overflow-hidden p-7 sm:p-9">
-            <div className="absolute right-0 top-0 h-32 w-32 rounded-bl-full bg-teal-50" />
-            <div className="relative">
-              <span className="inline-flex rounded-full bg-teal-100 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-teal-800">Practice update</span>
-              <h2 className="mt-5 font-serif text-3xl font-semibold text-slate-950">The official place to find {siteConfig.shortDoctorName}.</h2>
-              <p className="mt-4 leading-7 text-slate-600">{siteConfig.previousPracticeNote}</p>
-              <div className="mt-7 rounded-2xl bg-slate-50 p-5">
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">Current practice location</p>
-                <p className="mt-2 font-semibold text-slate-950">{siteConfig.practiceName}</p>
-                <p className="mt-1 text-sm text-slate-600">{siteConfig.streetLine1}</p>
-                <p className="text-sm text-slate-600">{siteConfig.streetLine2}</p>
-                <p className="text-sm text-slate-600">{siteConfig.cityState}</p>
-                <a href={siteConfig.phoneHref} className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-teal-800 hover:text-teal-950"><PhoneIcon className="h-4 w-4" />{siteConfig.phoneDisplay}</a>
+          <div className="flex flex-col gap-6">
+            <div className="overflow-hidden rounded-[2rem] border border-white/70 bg-slate-100 shadow-[0_18px_60px_rgba(15,23,42,0.12)]">
+              <div className="relative aspect-[4/5] w-full sm:aspect-[3/4] lg:aspect-[4/5]">
+                <Image
+                  src={siteConfig.headshot}
+                  alt="Dr. Kimvir S. Dhillon, endocrinologist in Laguna Hills."
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 44vw, (min-width: 640px) 70vw, 100vw"
+                  className="object-cover object-top"
+                />
               </div>
-              <p className="mt-5 text-xs leading-5 text-slate-500">Official information last updated {siteConfig.lastUpdated}. Please contact the office and your health plan directly to confirm current insurance participation and referral requirements.</p>
             </div>
-          </aside>
+
+            <div className="rounded-[2rem] border border-slate-200 bg-white/80 p-6 backdrop-blur-sm">
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-teal-800">Education &amp; training</p>
+              <ul className="mt-4 space-y-3">
+                {siteConfig.homeCredentials.map((item) => (
+                  <li key={item.school} className="border-l-2 border-teal-600 pl-4">
+                    <p className="font-serif text-lg font-semibold leading-tight text-slate-950">{item.school}</p>
+                    <p className="mt-0.5 text-sm text-slate-600">{item.detail}</p>
+                  </li>
+                ))}
+              </ul>
+              <Link href="/about" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-teal-800 hover:text-teal-950">
+                Full biography &amp; credentials <ArrowRightIcon className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="page-shell py-20 lg:py-24">
+      {/* Practice-update card — kept, but secondary to the portrait above */}
+      <section className="page-shell py-14 lg:py-16">
+        <aside className="card relative overflow-hidden p-7 sm:p-9">
+          <div className="absolute right-0 top-0 h-32 w-32 rounded-bl-full bg-teal-50" />
+          <div className="relative grid gap-7 lg:grid-cols-[1.1fr_.9fr] lg:items-center">
+            <div>
+              <span className="inline-flex rounded-full bg-teal-100 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-teal-800">Practice update</span>
+              <h2 className="mt-5 font-serif text-3xl font-semibold text-slate-950">The official place to find {siteConfig.shortDoctorName}.</h2>
+              <p className="mt-4 leading-7 text-slate-600">{siteConfig.previousPracticeNote}</p>
+            </div>
+            <div className="rounded-2xl bg-slate-50 p-5">
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">Current practice location</p>
+              <p className="mt-2 font-semibold text-slate-950">{siteConfig.practiceName}</p>
+              <p className="mt-1 text-sm text-slate-600">{siteConfig.streetLine1}</p>
+              <p className="text-sm text-slate-600">{siteConfig.streetLine2}</p>
+              <p className="text-sm text-slate-600">{siteConfig.cityState}</p>
+              <a href={siteConfig.phoneHref} className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-teal-800 hover:text-teal-950"><PhoneIcon className="h-4 w-4" />{siteConfig.phoneDisplay}</a>
+            </div>
+          </div>
+          <p className="relative mt-6 text-xs leading-5 text-slate-500">Official information last updated {siteConfig.lastUpdated}. Please contact the office and your health plan directly to confirm current insurance participation and referral requirements.</p>
+        </aside>
+      </section>
+
+      <section id="conditions-services" className="page-shell scroll-mt-24 py-16 lg:py-20">
         <SectionHeading
           eyebrow="Conditions and services"
           title="Endocrine care built around the whole patient."
@@ -92,7 +143,10 @@ export default function HomePage() {
           <p className="eyebrow">New patients</p>
           <h2 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-slate-950">Know what to expect before your first visit.</h2>
           <p className="mt-5 leading-8 text-slate-600">The office can help confirm referrals, records, insurance participation, and appointment availability before you arrive.</p>
-          <Link href="/new-patients" className="button-primary mt-7">New patient information <ArrowRightIcon className="h-4 w-4" /></Link>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link href="/new-patients" className="button-primary">New patient information <ArrowRightIcon className="h-4 w-4" /></Link>
+            <Link href="/new-patients#rates" className="button-secondary">Rates &amp; payment <ArrowRightIcon className="h-4 w-4" /></Link>
+          </div>
         </div>
         <div>
           <p className="eyebrow">Direct, current information</p>
