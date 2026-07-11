@@ -19,7 +19,7 @@ export default function HomePage() {
 
       <section className="relative overflow-hidden bg-gradient-to-br from-teal-50 via-white to-cyan-50">
         <div className="soft-grid absolute inset-0 opacity-70" />
-        <div className="page-shell relative grid gap-12 py-16 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:py-24">
+        <div className="page-shell relative grid gap-10 py-12 md:grid-cols-[1.15fr_.85fr] md:items-start md:gap-12 lg:gap-14 lg:py-16">
           <div>
             <p className="eyebrow">Official practice information</p>
             <h1 className="mt-5 font-serif text-5xl font-semibold leading-[1.05] tracking-tight text-slate-950 sm:text-6xl">
@@ -47,27 +47,43 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-5 sm:gap-6">
             <div className="overflow-hidden rounded-[2rem] border border-white/70 bg-slate-100 shadow-[0_18px_60px_rgba(15,23,42,0.12)]">
-              <div className="relative aspect-[4/5] w-full sm:aspect-[3/4] lg:aspect-[4/5]">
+              <div className="relative aspect-[4/5] w-full md:aspect-[5/4]">
                 <Image
                   src={siteConfig.headshot}
                   alt="Dr. Kimvir S. Dhillon, endocrinologist in Laguna Hills."
                   fill
                   priority
-                  sizes="(min-width: 1024px) 44vw, (min-width: 640px) 70vw, 100vw"
-                  className="object-cover object-top"
+                  sizes="(min-width: 768px) 40vw, 100vw"
+                  className="object-cover object-[center_25%]"
                 />
               </div>
             </div>
 
             <div className="rounded-[2rem] border border-slate-200 bg-white/80 p-6 backdrop-blur-sm">
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-teal-800">Education &amp; training</p>
-              <ul className="mt-4 space-y-3">
+              <ul className="mt-4 space-y-4">
                 {siteConfig.homeCredentials.map((item) => (
-                  <li key={item.school} className="border-l-2 border-teal-600 pl-4">
-                    <p className="font-serif text-lg font-semibold leading-tight text-slate-950">{item.school}</p>
-                    <p className="mt-0.5 text-sm text-slate-600">{item.detail}</p>
+                  <li key={item.school} className="flex items-center gap-4">
+                    {item.logo ? (
+                      <span className="flex h-11 shrink-0 items-center justify-center" style={{ width: item.logoWidth }}>
+                        <Image
+                          src={item.logo}
+                          alt={`${item.school} logo`}
+                          width={item.logoWidth}
+                          height={44}
+                          sizes={`${item.logoWidth}px`}
+                          className="h-auto w-full object-contain"
+                        />
+                      </span>
+                    ) : (
+                      <span className="h-11 w-1 shrink-0 rounded-full bg-teal-600" aria-hidden="true" />
+                    )}
+                    <div className="min-w-0">
+                      <p className="font-serif text-lg font-semibold leading-tight text-slate-950">{item.school}</p>
+                      <p className="mt-0.5 text-sm leading-snug text-slate-600">{item.detail}</p>
+                    </div>
                   </li>
                 ))}
               </ul>
