@@ -11,11 +11,11 @@ export const metadata: Metadata = {
     default: `${siteConfig.doctorName} | ${siteConfig.specialty}`,
     template: `%s | ${siteConfig.shortDoctorName}`,
   },
-  description: `Independent endocrinology care with ${siteConfig.doctorName} in ${siteConfig.cityState}.`,
+  description: `Official practice information for ${siteConfig.doctorName}, endocrinology at ${siteConfig.practiceName} in ${siteConfig.cityState}.`,
   openGraph: {
     type: "website",
     title: `${siteConfig.doctorName} | ${siteConfig.specialty}`,
-    description: `Independent endocrinology care in ${siteConfig.cityState}.`,
+    description: `Official practice information for ${siteConfig.doctorName} at ${siteConfig.practiceName} in ${siteConfig.cityState}.`,
   },
 };
 
@@ -24,13 +24,23 @@ const physicianSchema = {
   "@type": "Physician",
   name: siteConfig.doctorName,
   medicalSpecialty: "Endocrinology",
-  telephone: siteConfig.phoneDisplay,
+  telephone: siteConfig.phoneHref.replace("tel:", ""),
+  image: `https://www.example.com${siteConfig.headshot}`,
   address: {
     "@type": "PostalAddress",
     streetAddress: siteConfig.streetAddress,
-    addressLocality: siteConfig.cityState,
+    addressLocality: "Laguna Hills",
     addressRegion: "CA",
+    postalCode: "92653",
     addressCountry: "US",
+  },
+  hospitalAffiliation: {
+    "@type": "Hospital",
+    name: siteConfig.hospitalAffiliation,
+  },
+  worksFor: {
+    "@type": "MedicalBusiness",
+    name: siteConfig.practiceName,
   },
   url: "https://www.example.com",
 };

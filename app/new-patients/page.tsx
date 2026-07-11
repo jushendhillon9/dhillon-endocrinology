@@ -24,7 +24,7 @@ export default function NewPatientsPage() {
         <div className="page-shell py-20 lg:py-24">
           <p className="eyebrow">New patients</p>
           <h1 className="mt-5 max-w-4xl font-serif text-5xl font-semibold tracking-tight text-slate-950 sm:text-6xl">A clear path to your first appointment.</h1>
-          <p className="mt-6 max-w-3xl text-xl leading-8 text-slate-600">Use this page as the administrative starting point. It should eventually reflect the practice’s exact referral, scheduling, records, and insurance workflow.</p>
+          <p className="mt-6 max-w-3xl text-xl leading-8 text-slate-600">To request an appointment, please call the office at {siteConfig.phoneDisplay}. The steps below outline what to have ready before your first visit.</p>
         </div>
       </section>
 
@@ -57,8 +57,8 @@ export default function NewPatientsPage() {
           <aside className="rounded-[2rem] bg-teal-900 p-8 text-white">
             <p className="text-sm font-bold uppercase tracking-[0.16em] text-teal-200">Insurance note</p>
             <h2 className="mt-4 font-serif text-3xl font-semibold">Directory information may not always be current.</h2>
-            <p className="mt-5 leading-7 text-teal-100">Insurance participation can change, and third-party directories may lag. Please confirm coverage directly with the office and your health plan before scheduling or receiving services.</p>
-            <Link href="/contact" className="button-light mt-7">Contact the practice <ArrowRightIcon className="h-4 w-4" /></Link>
+            <p className="mt-5 leading-7 text-teal-100">Please contact the office and your health plan directly to confirm current insurance participation and referral requirements.</p>
+            <a href={siteConfig.phoneHref} className="button-light mt-7">Call {siteConfig.phoneDisplay} <ArrowRightIcon className="h-4 w-4" /></a>
           </aside>
         </div>
       </section>
