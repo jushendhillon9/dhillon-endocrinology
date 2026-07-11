@@ -49,18 +49,20 @@ export default function HomePage() {
           </div>
 
           {/* Right column: portrait only */}
-          <div className="lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-stretch">
-            <div className="relative h-[440px] w-full overflow-hidden rounded-[2rem] border border-white/70 bg-slate-100 shadow-[0_18px_60px_rgba(15,23,42,0.12)] sm:h-[520px] lg:h-full lg:min-h-[520px]">
-              <Image
-                src={siteConfig.headshot}
-                alt="Dr. Kimvir S. Dhillon, endocrinologist in Laguna Hills."
-                fill
-                priority
-                sizes="(min-width: 1024px) 40vw, 100vw"
-                className="object-contain object-center"
-              />
-            </div>
-          </div>
+          <div className="lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-start">
+  <div className="mx-auto w-full max-w-[420px] overflow-hidden rounded-[2rem] border border-white/70 bg-slate-100 shadow-[0_18px_60px_rgba(15,23,42,0.12)] lg:ml-auto lg:mr-0">
+    <div className="relative aspect-[4/5] w-full">
+      <Image
+        src={siteConfig.headshot}
+        alt="Dr. Kimvir S. Dhillon, endocrinologist in Laguna Hills."
+        fill
+        priority
+        sizes="(min-width: 1024px) 40px, 90vw"
+        className="object-cover object-[50%_45%]"
+      />
+    </div>
+  </div>
+</div>
 
           {/* Left column, beneath the buttons: education & training */}
           <div className="lg:col-start-1 lg:row-start-2">

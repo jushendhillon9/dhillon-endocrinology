@@ -44,7 +44,7 @@ export default function AboutPage() {
               height={1000}
               priority
               sizes="(min-width: 1024px) 30vw, 90vw"
-              className="aspect-[4/5] h-auto w-full object-cover object-[93%_25%]"
+              className="aspect-[4/5] h-auto w-full object-cover object-[50%_25%]"
             />
           </div>
         </div>
