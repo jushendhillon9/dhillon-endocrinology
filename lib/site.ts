@@ -18,8 +18,10 @@ export const siteConfig = {
   )}`,
   phoneDisplay: "(949) 465-8145",
   phoneHref: "tel:+19494658145",
-  // Cropped above the original banner's baked-in "Kimvir Dhillon, M.D." text.
-  headshot: "/assets/Dr.Dhillon-Portrait.png",
+  // Derived from the original banner: head-and-shoulders cropped clear of the
+  // baked-in text and red stripe, then padded onto a neutral slate canvas so
+  // the face sits comfortably framed with breathing room.
+  headshot: "/assets/Dr.Dhillon-Portrait-Framed.png",
   appointmentUrl: "/contact",
   openingStatus: "Now seeing patients at Saddleback Medical Group in Laguna Hills",
   currentPracticeNote:

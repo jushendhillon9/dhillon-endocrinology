@@ -19,8 +19,9 @@ export default function HomePage() {
 
       <section className="relative overflow-hidden bg-gradient-to-br from-teal-50 via-white to-cyan-50">
         <div className="soft-grid absolute inset-0 opacity-70" />
-        <div className="page-shell relative grid gap-10 py-12 md:grid-cols-[1.15fr_.85fr] md:items-start md:gap-12 lg:gap-14 lg:py-16">
-          <div>
+        <div className="page-shell relative grid gap-y-8 py-12 lg:grid-cols-[1.15fr_.85fr] lg:items-start lg:gap-x-14 lg:py-16">
+          {/* Left column: doctor information and actions */}
+          <div className="lg:col-start-1 lg:row-start-1">
             <p className="eyebrow">Official practice information</p>
             <h1 className="mt-5 font-serif text-5xl font-semibold leading-[1.05] tracking-tight text-slate-950 sm:text-6xl">
               {siteConfig.shortDoctorName}
@@ -47,23 +48,25 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-5 sm:gap-6">
-            <div className="overflow-hidden rounded-[2rem] border border-white/70 bg-slate-100 shadow-[0_18px_60px_rgba(15,23,42,0.12)]">
-              <div className="relative aspect-[4/5] w-full md:aspect-[5/4]">
-                <Image
-                  src={siteConfig.headshot}
-                  alt="Dr. Kimvir S. Dhillon, endocrinologist in Laguna Hills."
-                  fill
-                  priority
-                  sizes="(min-width: 768px) 40vw, 100vw"
-                  className="object-cover object-[center_25%]"
-                />
-              </div>
+          {/* Right column: portrait only */}
+          <div className="lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-stretch">
+            <div className="relative h-[440px] w-full overflow-hidden rounded-[2rem] border border-white/70 bg-slate-100 shadow-[0_18px_60px_rgba(15,23,42,0.12)] sm:h-[520px] lg:h-full lg:min-h-[520px]">
+              <Image
+                src={siteConfig.headshot}
+                alt="Dr. Kimvir S. Dhillon, endocrinologist in Laguna Hills."
+                fill
+                priority
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-contain object-center"
+              />
             </div>
+          </div>
 
-            <div className="rounded-[2rem] border border-slate-200 bg-white/80 p-6 backdrop-blur-sm">
+          {/* Left column, beneath the buttons: education & training */}
+          <div className="lg:col-start-1 lg:row-start-2">
+            <div className="rounded-[2rem] border border-slate-200 bg-white/80 p-5 backdrop-blur-sm sm:p-6">
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-teal-800">Education &amp; training</p>
-              <ul className="mt-4 space-y-4">
+              <ul className="mt-3 space-y-3">
                 {siteConfig.homeCredentials.map((item) => (
                   <li key={item.school} className="flex items-center gap-4">
                     {item.logo ? (
@@ -88,7 +91,7 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-              <Link href="/about" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-teal-800 hover:text-teal-950">
+              <Link href="/about" className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-teal-800 hover:text-teal-950">
                 Full biography &amp; credentials <ArrowRightIcon className="h-4 w-4" />
               </Link>
             </div>
