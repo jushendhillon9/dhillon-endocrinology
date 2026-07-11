@@ -11,12 +11,15 @@ export const metadata: Metadata = {
 };
 
 const serviceDetails = [
-  { title: "Diabetes care", body: "Evaluation and ongoing management for diabetes, glucose patterns, medication strategy, and related metabolic concerns." },
-  { title: "Thyroid care", body: "Assessment and management of thyroid function disorders, nodules, and other thyroid-related concerns within the scope of the practice." },
-  { title: "Bone and mineral health", body: "Evaluation of osteoporosis, calcium balance, parathyroid conditions, and related risk factors." },
-  { title: "Pituitary and adrenal care", body: "Thoughtful evaluation of symptoms, laboratory findings, and imaging related to pituitary or adrenal function." },
-  { title: "Hormonal and metabolic conditions", body: "Care for endocrine concerns that require careful interpretation across symptoms, history, and testing." },
-  { title: "Longitudinal endocrine management", body: "Ongoing follow-up, monitoring, and adjustment for conditions that benefit from continuity over time." },
+  { title: "Diabetes management", body: "Evaluation and ongoing management for diabetes, glucose patterns, medication strategy, and related metabolic concerns." },
+  { title: "Thyroid disorders", body: "Assessment and management of thyroid function disorders and related concerns within the scope of the practice." },
+  { title: "Thyroid nodules", body: "Evaluation and monitoring of thyroid nodules, with imaging and testing interpreted in the context of the whole clinical picture." },
+  { title: "Thyroid ultrasound", body: "In-office thyroid ultrasound to help evaluate the thyroid gland and characterize nodules when clinically indicated." },
+  { title: "Ultrasound-guided thyroid biopsy", body: "Ultrasound-guided fine-needle biopsy of thyroid nodules when further evaluation is recommended." },
+  { title: "Pituitary disorders and tumors", body: "Thoughtful evaluation of symptoms, laboratory findings, and imaging related to pituitary function and tumors." },
+  { title: "Adrenal disorders and tumors", body: "Evaluation and management of adrenal gland disorders and adrenal tumors, interpreted across symptoms, history, and testing." },
+  { title: "Parathyroid disorders", body: "Evaluation of calcium balance and parathyroid conditions, including related risk factors." },
+  { title: "Other hormonal and metabolic conditions", body: "Care for additional endocrine concerns that require careful interpretation across symptoms, history, and testing." },
 ];
 
 export default function ServicesPage() {
@@ -26,7 +29,7 @@ export default function ServicesPage() {
         <div className="page-shell py-20 lg:py-24">
           <p className="eyebrow">Conditions and services</p>
           <h1 className="mt-5 max-w-4xl font-serif text-5xl font-semibold tracking-tight text-slate-950 sm:text-6xl">Specialized endocrinology care, explained clearly.</h1>
-          <p className="mt-6 max-w-3xl text-xl leading-8 text-slate-600">The practice evaluates and manages hormonal, metabolic, thyroid, diabetes, and bone-health concerns. Final service language should match {siteConfig.shortDoctorName}’s exact clinical scope.</p>
+          <p className="mt-6 max-w-3xl text-xl leading-8 text-slate-600">{siteConfig.shortDoctorName} evaluates and manages a range of hormonal and metabolic conditions, with particular interests in thyroid disease, pituitary disease, adrenal tumors, and diabetes. Please contact the office to confirm whether a specific condition can be evaluated at the practice.</p>
         </div>
       </section>
 

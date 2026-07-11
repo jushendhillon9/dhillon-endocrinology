@@ -11,12 +11,12 @@ export default function HomePage() {
         <div className="soft-grid absolute inset-0 opacity-70" />
         <div className="page-shell relative grid gap-12 py-20 lg:grid-cols-[1.12fr_.88fr] lg:items-center lg:py-28">
           <div>
-            <p className="eyebrow">Independent endocrinology practice</p>
+            <p className="eyebrow">Official practice information</p>
             <h1 className="mt-5 max-w-4xl font-serif text-5xl font-semibold leading-[1.04] tracking-tight text-slate-950 sm:text-6xl lg:text-7xl">
               Specialized care for complex hormonal and metabolic health.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">
-              {siteConfig.doctorName} provides thoughtful, evidence-based endocrinology care with a focus on clear explanations and long-term partnership.
+              {siteConfig.currentPracticeNote} This is the official website for {siteConfig.shortDoctorName}’s current practice information, with a focus on clear explanations and long-term partnership.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link href={siteConfig.appointmentUrl} className="button-primary">
@@ -26,7 +26,7 @@ export default function HomePage() {
               <Link href="/about" className="button-secondary">Meet {siteConfig.shortDoctorName}</Link>
             </div>
             <div className="mt-9 flex flex-col gap-3 text-sm text-slate-600 sm:flex-row sm:gap-6">
-              <span className="inline-flex items-center gap-2"><LocationIcon className="h-4 w-4 text-teal-700" />{siteConfig.cityState}</span>
+              <span className="inline-flex items-center gap-2"><LocationIcon className="h-4 w-4 text-teal-700" />{siteConfig.practiceName} · {siteConfig.cityState}</span>
               <a href={siteConfig.phoneHref} className="inline-flex items-center gap-2 font-semibold text-slate-700 hover:text-slate-950"><PhoneIcon className="h-4 w-4 text-teal-700" />{siteConfig.phoneDisplay}</a>
             </div>
           </div>
@@ -39,10 +39,13 @@ export default function HomePage() {
               <p className="mt-4 leading-7 text-slate-600">{siteConfig.previousPracticeNote}</p>
               <div className="mt-7 rounded-2xl bg-slate-50 p-5">
                 <p className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">Current practice location</p>
-                <p className="mt-2 font-semibold text-slate-950">{siteConfig.streetAddress}</p>
-                <p className="mt-1 text-sm text-slate-600">{siteConfig.cityState}</p>
+                <p className="mt-2 font-semibold text-slate-950">{siteConfig.practiceName}</p>
+                <p className="mt-1 text-sm text-slate-600">{siteConfig.streetLine1}</p>
+                <p className="text-sm text-slate-600">{siteConfig.streetLine2}</p>
+                <p className="text-sm text-slate-600">{siteConfig.cityState}</p>
+                <a href={siteConfig.phoneHref} className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-teal-800 hover:text-teal-950"><PhoneIcon className="h-4 w-4" />{siteConfig.phoneDisplay}</a>
               </div>
-              <p className="mt-5 text-xs leading-5 text-slate-500">Official information last updated {siteConfig.lastUpdated}. Patients should confirm insurance participation directly with the office and their health plan.</p>
+              <p className="mt-5 text-xs leading-5 text-slate-500">Official information last updated {siteConfig.lastUpdated}. Please contact the office and your health plan directly to confirm current insurance participation and referral requirements.</p>
             </div>
           </aside>
         </div>

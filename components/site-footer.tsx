@@ -25,7 +25,9 @@ export function SiteFooter() {
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white">Practice</p>
           <div className="mt-4 space-y-2 text-sm text-slate-400">
-            <p>{siteConfig.streetAddress}</p>
+            <p>{siteConfig.practiceName}</p>
+            <p>{siteConfig.streetLine1}</p>
+            <p>{siteConfig.streetLine2}</p>
             <p>{siteConfig.cityState}</p>
             <a href={siteConfig.phoneHref} className="block transition hover:text-white">{siteConfig.phoneDisplay}</a>
           </div>
