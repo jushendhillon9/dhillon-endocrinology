@@ -6,8 +6,14 @@ import { SectionHeading } from "@/components/section-heading";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "New Patients",
-  description: `New patient information for the endocrinology practice of ${siteConfig.doctorName}.`,
+  title: "New Patient Information",
+  description: `New patient information for the endocrinology practice of ${siteConfig.doctorName} in Laguna Hills, CA — appointments, referrals, records, insurance, and what to bring to your first visit.`,
+  alternates: { canonical: "/new-patients" },
+  openGraph: {
+    title: `New Patient Information — ${siteConfig.shortDoctorName}, MD`,
+    description: `How to prepare for a first visit with ${siteConfig.doctorName}, endocrinologist in Laguna Hills, California.`,
+    url: "/new-patients",
+  },
 };
 
 const steps = [

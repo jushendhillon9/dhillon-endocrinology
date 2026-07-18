@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRightIcon, CheckIcon, ChevronDownIcon, LocationIcon, PhoneIcon } from "@/components/icons";
@@ -5,15 +6,19 @@ import { CtaBand } from "@/components/cta-band";
 import { SectionHeading } from "@/components/section-heading";
 import { siteConfig } from "@/lib/site";
 
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
 export default function HomePage() {
   return (
     <>
       {/* Full-width specialty banner directly beneath the navigation */}
       <section className="border-b border-teal-900/10 bg-teal-50">
         <div className="page-shell py-8 text-center sm:py-10">
-          <h2 className="font-serif text-2xl font-semibold tracking-tight text-teal-900 sm:text-3xl lg:text-4xl">
+          <p className="font-serif text-2xl font-semibold tracking-tight text-teal-900 sm:text-3xl lg:text-4xl">
             Specialized care for complex hormonal and metabolic health.
-          </h2>
+          </p>
         </div>
       </section>
 
@@ -23,14 +28,18 @@ export default function HomePage() {
           {/* Left column: doctor information and actions */}
           <div className="lg:col-start-1 lg:row-start-1">
             <p className="eyebrow">Official practice information</p>
-            <h1 className="mt-5 font-serif text-5xl font-semibold leading-[1.05] tracking-tight text-slate-950 sm:text-6xl">
-              {siteConfig.shortDoctorName}
+            <h1 className="mt-5">
+              <span className="block font-serif text-5xl font-semibold leading-[1.05] tracking-tight text-slate-950 sm:text-6xl">
+                Kimvir Dhillon, MD
+              </span>
+              <span className="mt-4 block text-lg font-semibold text-teal-800 sm:text-xl">
+                Endocrinologist in Laguna Hills, California
+              </span>
             </h1>
-            <p className="mt-4 text-lg font-semibold text-teal-800 sm:text-xl">
-              {siteConfig.specialty} · {siteConfig.practiceName}
-            </p>
             <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-              {siteConfig.currentPracticeNote} This is the official website for his current practice information.
+              {siteConfig.shortDoctorName} is an endocrinologist now seeing patients at{" "}
+              {siteConfig.practiceName.replace(", Inc.", "")} in Laguna Hills, California. This is
+              the official website for his current practice information.
             </p>
             <div className="mt-8 flex flex-col gap-3 text-sm text-slate-600 sm:flex-row sm:gap-6">
               <span className="inline-flex items-center gap-2"><LocationIcon className="h-4 w-4 shrink-0 text-teal-700" />{siteConfig.fullAddress}</span>
@@ -54,10 +63,10 @@ export default function HomePage() {
     <div className="relative aspect-[4/5] w-full">
       <Image
         src={siteConfig.headshot}
-        alt="Dr. Kimvir S. Dhillon, endocrinologist in Laguna Hills."
+        alt="Dr. Kimvir Dhillon, MD, endocrinologist in Laguna Hills, California"
         fill
         priority
-        sizes="(min-width: 1024px) 40px, 90vw"
+        sizes="(min-width: 1024px) 420px, 90vw"
         className="object-cover object-[50%_45%]"
       />
     </div>

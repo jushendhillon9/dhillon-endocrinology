@@ -6,8 +6,14 @@ import { SectionHeading } from "@/components/section-heading";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Services",
-  description: `Endocrinology conditions and services offered by ${siteConfig.doctorName}.`,
+  title: "Endocrinology Services",
+  description: `Endocrinology conditions and services offered by ${siteConfig.doctorName} in Laguna Hills, CA — diabetes, thyroid disorders, thyroid ultrasound and biopsy, pituitary, adrenal, and parathyroid care.`,
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: `Endocrinology Services — ${siteConfig.shortDoctorName}, MD, Laguna Hills, CA`,
+    description: `Conditions and services offered by ${siteConfig.doctorName}, including diabetes, thyroid, pituitary, adrenal, and parathyroid care.`,
+    url: "/services",
+  },
 };
 
 const serviceDetails = [

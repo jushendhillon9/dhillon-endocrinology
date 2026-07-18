@@ -33,7 +33,7 @@ Search the project for `[Add]`, `[Confirm`, `[City`, `[New practice`, `[Practice
 
 1. Exact legal/brand name of the practice
 2. Current address, suite, city, phone, fax, office hours, and approved email
-3. Official domain in `app/layout.tsx`, `app/sitemap.ts`, and `app/robots.ts`
+3. Official domain is configured once in `lib/site.ts` (`siteUrl`, currently `https://drkimvirdhillon.com`) and flows into metadata, sitemap, robots, and JSON-LD
 4. Approved biography, education, training, board certification language, and professional headshot
 5. Exact clinical scope and services
 6. Insurance and referral wording approved by the practice
