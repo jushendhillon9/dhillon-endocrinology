@@ -7,8 +7,14 @@ import { SectionHeading } from "@/components/section-heading";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About",
-  description: `Learn about ${siteConfig.doctorName}, his training, and his approach to endocrinology care.`,
+  title: "About Dr. Kimvir Dhillon, Endocrinologist",
+  description: `Learn about ${siteConfig.doctorName}, endocrinologist in Laguna Hills, CA — his education at the University of Vermont College of Medicine, training at UCLA Medical Center, and approach to endocrinology care.`,
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: `About ${siteConfig.shortDoctorName}, MD — Endocrinologist in Laguna Hills, CA`,
+    description: `Education, training, and biography of ${siteConfig.doctorName}, endocrinologist at ${siteConfig.practiceName} in Laguna Hills, California.`,
+    url: "/about",
+  },
 };
 
 export default function AboutPage() {
@@ -39,7 +45,7 @@ export default function AboutPage() {
           <div className="mt-5 overflow-hidden rounded-[2rem] bg-slate-100 shadow-sm">
             <Image
               src={siteConfig.headshot}
-              alt={siteConfig.doctorName}
+              alt="Portrait of Dr. Kimvir Dhillon, MD, endocrinologist in Laguna Hills, California"
               width={800}
               height={1000}
               priority

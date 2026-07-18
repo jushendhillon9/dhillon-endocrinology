@@ -3,8 +3,14 @@ import { LocationIcon, PhoneIcon } from "@/components/icons";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: `Official contact and location information for ${siteConfig.doctorName}.`,
+  title: "Contact & Office Location",
+  description: `Official contact and location information for ${siteConfig.doctorName}, endocrinologist at ${siteConfig.practiceName} — ${siteConfig.streetLine1}, ${siteConfig.streetLine2}, ${siteConfig.cityState}.`,
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: `Contact ${siteConfig.shortDoctorName}, MD — Laguna Hills, CA`,
+    description: `Current office address and phone number for ${siteConfig.doctorName} at ${siteConfig.practiceName} in Laguna Hills, California.`,
+    url: "/contact",
+  },
 };
 
 export default function ContactPage() {

@@ -2,12 +2,17 @@ const streetLine1 = "24221 Calle de la Louisa";
 const streetLine2 = "Third Floor, Suite 300";
 const cityState = "Laguna Hills, CA 92653";
 
+// Canonical origin for the site: apex domain, no trailing slash. Every
+// canonical URL, sitemap entry, OG url, and JSON-LD url derives from this.
+export const siteUrl = "https://drkimvirdhillon.com";
+
 export const siteConfig = {
   doctorName: "Kimvir S. Dhillon, MD",
   shortDoctorName: "Dr. Kimvir Dhillon",
   specialty: "Endocrinology",
+  specialtyFull: "Endocrinology, Diabetes & Metabolism",
   practiceName: "Saddleback Medical Group, Inc.",
-  hospitalAffiliation: "Saddleback Memorial Medical Center",
+  hospitalAffiliation: "MemorialCare Saddleback Medical Center",
   cityState,
   streetLine1,
   streetLine2,
@@ -18,6 +23,17 @@ export const siteConfig = {
   )}`,
   phoneDisplay: "(949) 465-8145",
   phoneHref: "tel:+19494658145",
+  languages: ["English", "Spanish"],
+  // Existing public physician profiles, used for JSON-LD sameAs so search
+  // engines can connect this site to Dr. Dhillon's established listings.
+  profileLinks: [
+    "https://saddlebackmedicalgroup.com/kimvir-dhillon/",
+    "https://www.doximity.com/pub/kimvir-dhillon-md",
+    "https://www.healthgrades.com/physician/dr-kimvir-dhillon-26fd4",
+    "https://doctor.webmd.com/doctor/kimvir-dhillon-398065fa-ccf4-496d-9d26-239e8bfc2f25-overview",
+    "https://www.sharecare.com/doctor/dr-kimvir-s-dhillon",
+    "https://www.vitals.com/doctors/Dr_Kimvir_Dhillon.html",
+  ],
   // Derived from the original banner: head-and-shoulders cropped clear of the
   // baked-in text and red stripe, then padded onto a neutral slate canvas so
   // the face sits comfortably framed with breathing room.

@@ -7,6 +7,7 @@ export function SiteFooter() {
       <div className="page-shell grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <p className="font-serif text-2xl font-semibold text-white">{siteConfig.doctorName}</p>
+          <p className="mt-1 text-sm font-semibold text-teal-300">{siteConfig.specialtyFull}</p>
           <p className="mt-2 max-w-md text-sm leading-6 text-slate-400">
             Independent endocrinology care focused on clear explanations, careful evaluation, and long-term partnership.
           </p>
@@ -24,13 +25,13 @@ export function SiteFooter() {
         </div>
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white">Practice</p>
-          <div className="mt-4 space-y-2 text-sm text-slate-400">
+          <address className="mt-4 space-y-2 text-sm not-italic text-slate-400">
             <p>{siteConfig.practiceName}</p>
             <p>{siteConfig.streetLine1}</p>
             <p>{siteConfig.streetLine2}</p>
             <p>{siteConfig.cityState}</p>
             <a href={siteConfig.phoneHref} className="block transition hover:text-white">{siteConfig.phoneDisplay}</a>
-          </div>
+          </address>
         </div>
       </div>
       <div className="border-t border-white/10">

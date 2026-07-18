@@ -1,56 +1,115 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./globals.css";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, siteUrl } from "@/lib/site";
+
+const homeTitle = `${siteConfig.shortDoctorName}, MD | Endocrinologist in Laguna Hills, CA`;
+const homeDescription = `Official website of ${siteConfig.doctorName}, endocrinologist at ${siteConfig.practiceName.replace(", Inc.", "")} in Laguna Hills, California. Current office location, phone number, and appointment information.`;
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.example.com"),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteConfig.doctorName} | ${siteConfig.specialty}`,
-    template: `%s | ${siteConfig.shortDoctorName}`,
+    default: homeTitle,
+    template: `%s | ${siteConfig.shortDoctorName}, MD`,
   },
-  description: `Official practice information for ${siteConfig.doctorName}, endocrinology at ${siteConfig.practiceName} in ${siteConfig.cityState}.`,
+  description: homeDescription,
   openGraph: {
     type: "website",
-    title: `${siteConfig.doctorName} | ${siteConfig.specialty}`,
-    description: `Official practice information for ${siteConfig.doctorName} at ${siteConfig.practiceName} in ${siteConfig.cityState}.`,
+    url: siteUrl,
+    siteName: `${siteConfig.shortDoctorName}, MD`,
+    locale: "en_US",
+    title: homeTitle,
+    description: homeDescription,
+    images: [
+      {
+        url: siteConfig.headshot,
+        width: 1008,
+        height: 1018,
+        alt: `${siteConfig.shortDoctorName}, MD, endocrinologist in Laguna Hills, California`,
+      },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: homeTitle,
+    description: homeDescription,
+    images: [siteConfig.headshot],
+  },
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
 };
 
 const physicianSchema = {
   "@context": "https://schema.org",
   "@type": "Physician",
+  "@id": `${siteUrl}/#physician`,
   name: siteConfig.doctorName,
+  alternateName: siteConfig.shortDoctorName,
+  honorificSuffix: "MD",
   medicalSpecialty: "Endocrinology",
+  description: `${siteConfig.doctorName} is an endocrinologist practicing at ${siteConfig.practiceName} in Laguna Hills, California.`,
   telephone: siteConfig.phoneHref.replace("tel:", ""),
-  image: `https://www.example.com${siteConfig.headshot}`,
+  image: `${siteUrl}${siteConfig.headshot}`,
+  url: siteUrl,
   address: {
     "@type": "PostalAddress",
-    streetAddress: siteConfig.streetAddress,
+    streetAddress: `${siteConfig.streetLine1}, ${siteConfig.streetLine2}`,
     addressLocality: "Laguna Hills",
     addressRegion: "CA",
     postalCode: "92653",
     addressCountry: "US",
   },
-  hospitalAffiliation: {
-    "@type": "Hospital",
-    name: siteConfig.hospitalAffiliation,
-  },
   worksFor: {
     "@type": "MedicalBusiness",
     name: siteConfig.practiceName,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: `${siteConfig.streetLine1}, ${siteConfig.streetLine2}`,
+      addressLocality: "Laguna Hills",
+      addressRegion: "CA",
+      postalCode: "92653",
+      addressCountry: "US",
+    },
   },
-  url: "https://www.example.com",
+  memberOf: {
+    "@type": "MedicalOrganization",
+    name: siteConfig.practiceName,
+  },
+  hospitalAffiliation: {
+    "@type": "Hospital",
+    name: siteConfig.hospitalAffiliation,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Laguna Hills",
+      addressRegion: "CA",
+      addressCountry: "US",
+    },
+  },
+  alumniOf: [
+    {
+      "@type": "CollegeOrUniversity",
+      name: "University of Vermont College of Medicine",
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      name: "UCLA Medical Center",
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      name: "University of California, Berkeley",
+    },
+  ],
+  knowsLanguage: ["en", "es"],
+  sameAs: siteConfig.profileLinks,
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body>
-        <Script
-          id="physician-schema"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(physicianSchema) }}
         />
